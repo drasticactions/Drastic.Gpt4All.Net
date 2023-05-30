@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\external\gpt4all.net.Runtime\gpt4all\gpt4all-bindings\csharp\Gpt4All\Gpt4All.csproj" />
+    <ProjectReference Include="..\Drastic.Gpt4All.Net\Drastic.Gpt4All.Net.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Downloader" Version="3.0.4" />
+    <PackageReference Include="Drastic.Utilities" Version="1.0.10" />
+  </ItemGroup>
+
+</Project>

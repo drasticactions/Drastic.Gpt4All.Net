@@ -9,7 +9,15 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\external\gpt4all.net.Runtime\gpt4all\gpt4all-bindings\csharp\Gpt4All\Gpt4All.csproj" />
+		<ProjectReference Include="..\Drastic.Gpt4All.Net.UI\Drastic.Gpt4All.Net.UI.csproj" />
 		<ProjectReference Include="..\Drastic.Gpt4All.Net\Drastic.Gpt4All.Net.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+	  <PackageReference Include="Sharprompt" Version="2.4.5" />
+	  <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+	  <PackageReference Include="System.CommandLine.DragonFruit" Version="0.4.0-alpha.22272.1" />
 	</ItemGroup>
 
 </Project>
