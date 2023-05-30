@@ -36,10 +36,11 @@ internal class MainProgram
         };
         
         this.root.Add(new Option<string>("--model", "GPT4All Model"));
-        this.root.Add(new Option<string>("--prompt", "Prompt to use with GPT4All"));
+        this.root.Add(new Option<string>("--prompt", "Initial Prompt to use with GPT4All"));
+        this.root.Add(new Option<bool>("--interactive", "Interactive chat session"));
     }
 
-    private async Task LocalFiles(string model, string prompt)
+    private async Task LocalFiles(string model, string prompt, bool interactive)
     {
         model = await this.GetModelPrompt(model);
         prompt ??= Prompt.Input<string>("Enter a prompt");
