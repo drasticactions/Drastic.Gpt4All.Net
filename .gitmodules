@@ -1,0 +1,3 @@
+[submodule "external/gpt4all.net.Runtime"]
+	path = external/gpt4all.net.Runtime
+	url = git@github.com:drasticactions/gpt4all.net.Runtime.git
