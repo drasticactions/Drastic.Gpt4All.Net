@@ -16,6 +16,8 @@ public class Gpt4AllModelService : INotifyPropertyChanged
     private IAppDispatcher dispatcher;
     private Gpt4AllWebModel? selectedModel;
     private string defaultPath;
+    private bool isInitialized;
+
     public Gpt4AllModelService(IServiceProvider provider, string? defaultPath = null)
     {
         this.dispatcher = provider.GetRequiredService<IAppDispatcher>();
@@ -39,6 +41,16 @@ public class Gpt4AllModelService : INotifyPropertyChanged
         {
             this.SetProperty(ref this.selectedModel, value);
             this.OnUpdatedSelectedModel?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+    public bool IsInitialized {
+        get {
+            return this.isInitialized;
+        }
+
+        set {
+            this.SetProperty(ref this.isInitialized, value);
         }
     }
     
@@ -104,6 +116,7 @@ public class Gpt4AllModelService : INotifyPropertyChanged
         }
 
         this.OnAvailableModelsUpdate?.Invoke(this, EventArgs.Empty);
+        this.IsInitialized = true;
     }
 
     
