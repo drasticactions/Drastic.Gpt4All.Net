@@ -28,7 +28,7 @@ namespace Drastic.Gpt4All.Net.UI.ViewModels
         {
             await base.OnLoad();
 
-            if (!this.modelService.IsInitialized)
+            if (!this.Downloads.Any())
             {
                 await this.UpdateModels();
             }

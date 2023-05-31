@@ -23,6 +23,7 @@ public class Gpt4AllModelService : INotifyPropertyChanged
         this.dispatcher = provider.GetRequiredService<IAppDispatcher>();
         this.httpClient = new HttpClient();
         this.defaultPath = defaultPath ?? Gpt4AllStatic.DefaultPath;
+        Directory.CreateDirectory(this.defaultPath);
         this.UpdateAvailableModels();
     }
     
@@ -67,7 +68,15 @@ public class Gpt4AllModelService : INotifyPropertyChanged
         modelsJsonPath ??= Path.Combine(this.defaultPath, "models.json");
         if (File.Exists(modelsJsonPath))
         {
-            defaultJson = await File.ReadAllTextAsync(Path.Combine(this.defaultPath, "models.json"), Encoding.UTF8);
+            try
+            {
+                defaultJson = await File.ReadAllTextAsync(Path.Combine(this.defaultPath, "models.json"), Encoding.UTF8);
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                // throw;
+            }
         }
 
         await InitializeAsync(defaultJson);
