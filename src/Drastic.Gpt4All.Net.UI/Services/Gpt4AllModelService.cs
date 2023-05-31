@@ -116,7 +116,7 @@ public class Gpt4AllModelService : INotifyPropertyChanged
         }
 
         this.OnAvailableModelsUpdate?.Invoke(this, EventArgs.Empty);
-        this.IsInitialized = true;
+        this.IsInitialized = this.AllModels.Any();
     }
 
     

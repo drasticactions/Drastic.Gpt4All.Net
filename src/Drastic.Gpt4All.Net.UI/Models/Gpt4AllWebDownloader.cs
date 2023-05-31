@@ -19,6 +19,7 @@ public class Gpt4AllWebDownloader : INotifyPropertyChanged, IDisposable, IErrorH
 
     public Gpt4AllWebDownloader(Gpt4AllWebModel model, Gpt4AllModelService service, IAppDispatcher dispatcher)
     {
+        this.dispatcher = dispatcher;
         this.service = service;
         this.Model = model;
         this.download = new DownloadService();

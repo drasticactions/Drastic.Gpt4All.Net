@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Drastic.Gpt4All.Net.MauiSample.MainPage">
+
+    <Grid Margin="15"
+          RowSpacing="5"
+          RowDefinitions="Auto, Auto, Auto, *">
+        <Grid ColumnSpacing="5" Grid.Row="0" ColumnDefinitions="50, *, Auto, Auto">
+            <Label VerticalOptions="Center" Text="Model:" />
+            <Entry HorizontalOptions="Fill" Grid.Column="1" IsEnabled="False" Text="{Binding  ModelService.SelectedModel.FileLocation}" />
+            <Picker Grid.Column="2" HorizontalOptions="StartAndExpand" VerticalOptions="Center" ItemsSource="{Binding ModelService.AvailableModels}" SelectedItem="{Binding ModelService.SelectedModel, Mode=TwoWay}" ItemDisplayBinding="{Binding Filename}"/>
+            <Button Grid.Column="3" Text="Download Model" Clicked="OnCounterClicked" />
+        </Grid>
+        <Entry Margin="5" Grid.Row="1" Placeholder="Prompt..." Text="{Binding Prompt}"/>
+        <Button Margin="5" Grid.Row="2" Text="Generate" Command="{Binding GenerateCommand}" />
+        <Editor Margin="5" IsReadOnly="True" Grid.Row="3" Text="{Binding GeneratedText}"/>
+    </Grid>
+
+</ContentPage>

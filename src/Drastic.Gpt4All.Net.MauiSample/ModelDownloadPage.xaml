@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Drastic.Gpt4All.Net.MauiSample.ModelDownloadPage"
+             xmlns:ui="clr-namespace:Xe.AcrylicView;assembly=Xe.AcrylicView" 
+             Title="ModelDownloadPage">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid Margin="15">
+                <Label Text="Models" FontSize="Title" VerticalOptions="Center" HorizontalOptions="Center" />
+            </Grid>
+            <VerticalStackLayout Spacing="5" BindableLayout.ItemsSource="{Binding Downloads}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <ui:AcrylicView CornerRadius="5" EffectStyle="Custom" TintColor="{AppThemeBinding Dark=Black, Light=#EEEEEE}" TintOpacity=".85"  Margin="5" >
+                            <Grid Margin="15" ColumnSpacing="5" ColumnDefinitions="*, *, Auto">
+                                <Grid Margin="5" RowSpacing="5" RowDefinitions="Auto, Auto">
+                                    <Label FontAttributes="Bold" Text="{Binding Model.Filename}" />
+                                    <Label Grid.Row="1" FontSize="Caption" Text="{Binding Model.Description}" />
+                                </Grid>
+                                <ProgressBar IsVisible="{Binding DownloadStarted}" Progress="{Binding Precent}" Grid.Column="1" VerticalOptions="Center" />
+                                <Button MinimumWidthRequest="100" IsVisible="{Binding ShowDownloadButton}"  VerticalOptions="Center" Grid.Column="2" Text="Download" BackgroundColor="#007AFF" TextColor="White" Command="{Binding DownloadCommand}"/>
+                                <Button MinimumWidthRequest="100" IsVisible="{Binding ShowCancelButton}" VerticalOptions="Center" Grid.Column="2" Text="Cancel" BackgroundColor="#FF3B30" TextColor="White"  Command="{Binding CancelCommand}"/>
+                                <Button MinimumWidthRequest="100" IsVisible="{Binding ShowDeleteButton}" VerticalOptions="Center" Grid.Column="2" Text="Delete" BackgroundColor="#FF3B30" TextColor="White"  Command="{Binding DeleteCommand}"/>
+                            </Grid>
+                        </ui:AcrylicView>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+            <Grid Margin="15">
+                <Button VerticalOptions="Center" HorizontalOptions="Center" Text="Close" Clicked="Button_Clicked"/>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
