@@ -5,16 +5,18 @@
 
     <Grid Margin="15"
           RowSpacing="5"
-          RowDefinitions="Auto, Auto, Auto, *">
-        <Grid ColumnSpacing="5" Grid.Row="0" ColumnDefinitions="50, *, Auto, Auto">
+          RowDefinitions="Auto, Auto, Auto, Auto, *">
+        <Grid ColumnSpacing="5" Grid.Row="0" ColumnDefinitions="50, *">
             <Label VerticalOptions="Center" Text="Model:" />
             <Entry HorizontalOptions="Fill" Grid.Column="1" IsEnabled="False" Text="{Binding  ModelService.SelectedModel.FileLocation}" />
-            <Picker Grid.Column="2" HorizontalOptions="StartAndExpand" VerticalOptions="Center" ItemsSource="{Binding ModelService.AvailableModels}" SelectedItem="{Binding ModelService.SelectedModel, Mode=TwoWay}" ItemDisplayBinding="{Binding Filename}"/>
-            <Button Grid.Column="3" Text="Download Model" Clicked="OnCounterClicked" />
         </Grid>
-        <Entry Margin="5" Grid.Row="1" Placeholder="Prompt..." Text="{Binding Prompt}"/>
-        <Button Margin="5" Grid.Row="2" Text="Generate" Command="{Binding GenerateCommand}" />
-        <Editor Margin="5" IsReadOnly="True" Grid.Row="3" Text="{Binding GeneratedText}"/>
+        <VerticalStackLayout Spacing="5" Grid.Row="1">
+            <Picker HorizontalOptions="FillAndExpand"  ItemsSource="{Binding ModelService.AvailableModels}" SelectedItem="{Binding ModelService.SelectedModel, Mode=TwoWay}" ItemDisplayBinding="{Binding Filename}"/>
+            <Button Text="Download Model" Clicked="OnCounterClicked" />
+        </VerticalStackLayout>
+        <Entry Margin="5" Grid.Row="2" Placeholder="Prompt..." Text="{Binding Prompt}"/>
+        <Button Margin="5" Grid.Row="3" Text="Generate" Command="{Binding GenerateCommand}" />
+        <Editor Margin="5" IsReadOnly="True" Grid.Row="4" Text="{Binding GeneratedText}"/>
     </Grid>
 
 </ContentPage>
