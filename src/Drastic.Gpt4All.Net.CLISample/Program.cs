@@ -174,8 +174,6 @@ internal class Program
 
     private static async Task<int> Main(string[] args)
     {
-        NativeLibraryLoader.LoadNativeLibrary();
-
         program = new MainProgram(args);
         return await program.RunAsync();
     }
