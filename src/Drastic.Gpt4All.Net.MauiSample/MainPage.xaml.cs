@@ -29,5 +29,23 @@ public partial class MainPage : ContentPage
         var platform = new DefaultMauiPlatformServices(this.Window);
         platform.OpenInModalAsync(new ModelDownloadPage(this.provider));
     }
+
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            var result = await FilePicker.Default.PickAsync();
+            if (result != null)
+            {
+                //if (result.FileName.EndsWith("bin", StringComparison.OrdinalIgnoreCase))
+                //{
+                //    this.Vm.ModelService.SelectedModel = new UI.Models.Gpt4AllWebModel() { FileLocation = result.FullPath, Filename = Path.GetFileName(result.FullPath) };
+                //}
+            }
+        }
+        catch (Exception ex)
+        {
+        }
+    }
 }
 

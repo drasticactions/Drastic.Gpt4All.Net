@@ -13,6 +13,7 @@
         <VerticalStackLayout Spacing="5" Grid.Row="1">
             <Picker HorizontalOptions="FillAndExpand"  ItemsSource="{Binding ModelService.AvailableModels}" SelectedItem="{Binding ModelService.SelectedModel, Mode=TwoWay}" ItemDisplayBinding="{Binding Filename}"/>
             <Button Text="Download Model" Clicked="OnCounterClicked" />
+            <Button Text="Pick Local Model" Clicked="Button_Clicked"/>
         </VerticalStackLayout>
         <Entry Margin="5" Grid.Row="2" Placeholder="Prompt..." Text="{Binding Prompt}"/>
         <Button Margin="5" Grid.Row="3" Text="Generate" Command="{Binding GenerateCommand}" />
